@@ -1,0 +1,16 @@
+<mapper namespace="user">
+
+    <!-- sql的唯一标识,namespace.id来组成 :statementId-->
+    <select id="selectList" resultType="com.janson.pojo.User">
+        select * from user
+    </select>
+
+    <!--
+     User user = new User();
+     user.setId(1);
+     user.setName("zhangsan");
+    -->
+    <select id="selectOne" resultType="com.janson.pojo.User" paramterType="com.janson.pojo.User">
+        select * from user where id = #{id} and username = #{username}
+    </select>
+</mapper>
