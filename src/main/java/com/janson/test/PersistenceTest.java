@@ -1,5 +1,6 @@
 package com.janson.test;
 
+import com.janson.dao.IUserDao;
 import com.janson.io.Resources;
 import com.janson.pojo.User;
 import com.janson.sqlSession.SqlSession;
@@ -31,10 +32,21 @@ public class PersistenceTest {
 //        User user2 = sqlSession.selectOne("user.selectOne", user);
 //        System.out.println(user2);
 
-        List<User> users = sqlSession.selectList("user.selectList");
-        for (User user1 : users) {
+//        List<User> users = sqlSession.selectList("user.selectList");
+//        for (User user1 : users) {
+//            System.out.println(user1);
+//        }
+
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+        // 代理对象调用接口中任意方法，都会执行invoke方法
+        List<User> all = userDao.findAll();
+
+//        User user2 = userDao.findByCondition(user);
+//        System.out.println(user2);
+        for (User user1 : all) {
             System.out.println(user1);
         }
+
 
     }
 }
