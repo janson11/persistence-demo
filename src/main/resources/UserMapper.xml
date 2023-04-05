@@ -10,7 +10,7 @@
      user.setId(1);
      user.setName("zhangsan");
     -->
-    <select id="selectOne" resultType="com.janson.pojo.User" paramterType="com.janson.pojo.User">
+    <select id="selectOne" resultType="com.janson.pojo.User" parameterType="com.janson.pojo.User">
         select * from user where id = #{id} and username = #{username}
     </select>
 </mapper>
